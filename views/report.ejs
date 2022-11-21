@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+</head>
+<body>
+
+  <header class="wcc-bg">
+    <div class="flex justify-between column center">
+      <div>
+        <p class="f4 ma0"><a href="/" class="black">Back</a></p>
+        <h1 class="f2 mt2">Brooklyn Cycleway Trial</h1>
+        <h2 class="f4">25 August, 2021 | Puroro Amua - Planning and Environment Committee</h2>
+      </div>
+
+      <div class="w-20 pt2">
+        <%- include('./partials/logo') %>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="bg-light-gray br2 mt3 pa4">
+      <p class="mt0 f4">A paper on the trial of the bike route up Brooklyn Road. This paper will ask councillors for approval to consult on a permanent option.</p>
+
+      <a href="/" class="f4">Read the full paper</a>
+    </div>
+
+    <div class="mt4">
+      <div class="flex mb3 items-center">
+        <%- include('./partials/link') %> <a href="/" class="f4 db ma0 ml2">Meeting agenda</a>
+      </div>
+      <div class="flex mb3 items-center">
+        <%- include('./partials/link') %> <a href="/" class="f4 db ma0 ml2">Meeting minutes</a>
+      </div>
+      <div class="flex mb3 items-center">
+        <%- include('./partials/link') %> <a href="/" class="f4 db ma0 ml2">Watch a recording of this meeting</a>
+      </div>
+    </div>
+
+    <div class="mt5">
+      <h3 class="ma0 mb2 f2">Decisions</h3>
+      <p class="ma0 f4">The resolutions made during the meeting:</p>
+
+
+
+      <div class="mt4">
+        <% actions.forEach(function(action, index) { %>
+          <div class="flex justify-between items-baseline justify-center bb b--black pa2">
+            <div class="mw7">
+              <p class="b lh-copy f4"><%= action.clause %>. <%= action.text %> </p>
+
+              <% if (action.comment) { %>
+                <p class="b lh-copy f4">Comment:</p>
+                <div class="f4"><%- action.comment %></div>
+              <% } %>
+            </div>
+
+            <% if (action.status == "in progress") { %>
+              <div class='mw7'>
+                <div class='f4 b br3 ph3 pv2 dib black bg-yellow tc'>
+                  In Progress
+                </div>
+              </div>
+            <% } else { %>
+              <div class='mw7'>
+                <div class='f4 b br3 ph3 pv2 dib white bg-green tc'>
+                  Completed
+                </div>
+              </div>
+            <% } %>
+          </div>
+       <% }); %>
+      </div>
+    </div>
+
+    <div class="mt5">
+      <h3 class="f2 ma0 mb2">More reports</h3>
+
+      <div class="mt4">
+        <p class="ma0 lh-copy f4"><a href="/" class="black ">Applications for innovating streets funding</a></p>
+        <p class="f4 lh-copy ma0">07 May, 2021 | Planning and Environment Committee</p>
+        <p class="f4 lh-copy ma0">Approval of our application and approach to Innovating Streets</p>
+      </div>
+    </div>
+
+    <div class="mt5 mb6">
+      <h3 class="f2 ma0 mb2">Contact us</h3>
+
+      <div class="mt4">
+        <p class="f4 lh-copy ma0">Email: <a href="/" class="black ">brooklyncycleway@wcc.govt.nz</a></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
